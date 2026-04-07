@@ -1,0 +1,10 @@
+{
+  "count": 2831,
+  "output_file": "ezlibrary_crawl_output.json",
+  "link_probe": {
+    "sample_link": "https://docs.google.com/spreadsheets/d/1qldZHeV6vqc-oqOpaLYDKXTkFRmA4c3TOxqtni3N-fM/edit?usp=sharing",
+    "final_url": "https://docs.google.com/spreadsheets/d/1qldZHeV6vqc-oqOpaLYDKXTkFRmA4c3TOxqtni3N-fM/edit?usp=sharing",
+    "status": 200,
+    "content_type": "text/html; charset=utf-8"
+  }
+}

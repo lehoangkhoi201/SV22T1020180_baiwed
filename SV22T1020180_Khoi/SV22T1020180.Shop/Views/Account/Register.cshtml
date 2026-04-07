@@ -1,0 +1,58 @@
+@model Customer
+@{
+    ViewData["Title"] = "Đăng ký";
+}
+
+<div class="container py-4">
+    <div class="auth-card" style="max-width:520px;">
+        <h2 class="text-center"><i class="bi bi-person-plus me-2"></i>Đăng ký tài khoản</h2>
+
+        @if (ViewBag.Error != null)
+        {
+            <div class="alert alert-danger">@ViewBag.Error</div>
+        }
+
+        <form method="post" asp-action="Register">
+            <div class="mb-3">
+                <label class="form-label">Tên khách hàng <span class="text-danger">*</span></label>
+                <input type="text" name="CustomerName" class="form-control" value="@Model?.CustomerName" required />
+                <span class="text-danger small">@Html.ValidationMessage("CustomerName")</span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Tên giao dịch</label>
+                <input type="text" name="ContactName" class="form-control" value="@Model?.ContactName" />
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Email <span class="text-danger">*</span></label>
+                <input type="email" name="Email" class="form-control" value="@Model?.Email" required />
+                <span class="text-danger small">@Html.ValidationMessage("Email")</span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Điện thoại</label>
+                <input type="text" name="Phone" class="form-control" value="@Model?.Phone" />
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Địa chỉ</label>
+                <input type="text" name="Address" class="form-control" value="@Model?.Address" />
+            </div>
+            <div class="row g-2">
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Mật khẩu <span class="text-danger">*</span></label>
+                    <input type="password" name="Password" class="form-control" required />
+                    <span class="text-danger small">@Html.ValidationMessage("Password")</span>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Xác nhận mật khẩu <span class="text-danger">*</span></label>
+                    <input type="password" name="confirmPassword" class="form-control" required />
+                    <span class="text-danger small">@Html.ValidationMessage("confirmPassword")</span>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary mt-2">Đăng ký</button>
+        </form>
+
+        <div class="text-center mt-3">
+            <span class="text-muted">Đã có tài khoản?</span>
+            <a asp-action="Login" class="fw-bold">Đăng nhập</a>
+        </div>
+    </div>
+</div>

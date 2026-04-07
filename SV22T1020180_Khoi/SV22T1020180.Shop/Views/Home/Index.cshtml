@@ -1,0 +1,233 @@
+@{
+    ViewData["Title"] = "Trang chủ";
+    var products = ViewBag.FeaturedProducts as List<Product> ?? new List<Product>();
+    var categories = ViewBag.Categories as List<Category> ?? new List<Category>();
+    string[] icons = { "bi-laptop", "bi-phone", "bi-headphones", "bi-tv", "bi-camera", "bi-watch", "bi-printer", "bi-mouse", "bi-keyboard", "bi-cpu" };
+}
+
+<!-- Main carousel banners -->
+<section class="home-hero-carousel mb-0">
+    <div id="homeMainCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5500">
+        <div class="carousel-indicators home-carousel-indicators">
+            <button type="button" data-bs-target="#homeMainCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#homeMainCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#homeMainCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="home-banner-slide home-banner-slide--blue">
+                    <div class="home-banner-pattern"></div>
+                    <div class="container position-relative">
+                        <div class="row align-items-center min-vh-25 py-5 py-md-6">
+                            <div class="col-lg-7 text-white">
+                                <span class="home-banner-badge mb-3"><i class="bi bi-stars me-1"></i> LHK Shop</span>
+                                <h2 class="home-banner-title">Công nghệ mới nhất<br /><span class="text-warning">Giá tốt mỗi ngày</span></h2>
+                                <p class="home-banner-desc">Laptop, điện thoại, phụ kiện chính hãng — giao nhanh toàn quốc.</p>
+                                <a asp-controller="Product" asp-action="Index" class="btn btn-lg btn-warning fw-bold px-4 rounded-pill shadow">
+                                    <i class="bi bi-bag-check me-2"></i>Khám phá ngay
+                                </a>
+                            </div>
+                            <div class="col-lg-5 d-none d-lg-block text-center">
+                                <div class="home-banner-icon-float">
+                                    <i class="bi bi-laptop display-1 text-white opacity-75"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="home-banner-slide home-banner-slide--violet">
+                    <div class="home-banner-pattern home-banner-pattern--dots"></div>
+                    <div class="container position-relative">
+                        <div class="row align-items-center min-vh-25 py-5 py-md-6">
+                            <div class="col-lg-7 text-white">
+                                <span class="home-banner-badge home-banner-badge--hot mb-3"><i class="bi bi-fire me-1"></i> Siêu sale</span>
+                                <h2 class="home-banner-title">Giảm giá lên đến<br /><span class="display-5 fw-bolder">50%</span></h2>
+                                <p class="home-banner-desc">Hàng ngàn sản phẩm đang chờ bạn — số lượng có hạn.</p>
+                                <a asp-controller="Product" asp-action="Index" class="btn btn-lg btn-light fw-bold px-4 rounded-pill">
+                                    <i class="bi bi-tag me-2"></i>Xem ưu đãi
+                                </a>
+                            </div>
+                            <div class="col-lg-5 d-none d-lg-block text-center">
+                                <div class="home-banner-icon-float" style="animation-delay:.3s">
+                                    <i class="bi bi-percent display-1 text-white opacity-75"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="home-banner-slide home-banner-slide--emerald">
+                    <div class="home-banner-pattern home-banner-pattern--grid"></div>
+                    <div class="container position-relative">
+                        <div class="row align-items-center min-vh-25 py-5 py-md-6">
+                            <div class="col-lg-7 text-white">
+                                <span class="home-banner-badge mb-3"><i class="bi bi-truck me-1"></i> Giao hàng</span>
+                                <h2 class="home-banner-title">Miễn phí vận chuyển<br /><span class="fs-3 fw-normal opacity-90">Đơn từ 500.000đ</span></h2>
+                                <p class="home-banner-desc">Đóng gói cẩn thận — theo dõi đơn hàng trực tuyến mọi lúc.</p>
+                                <a asp-controller="Home" asp-action="Contact" class="btn btn-lg btn-outline-light fw-bold px-4 rounded-pill">
+                                    <i class="bi bi-headset me-2"></i>Liên hệ tư vấn
+                                </a>
+                            </div>
+                            <div class="col-lg-5 d-none d-lg-block text-center">
+                                <div class="home-banner-icon-float" style="animation-delay:.15s">
+                                    <i class="bi bi-truck-front display-1 text-white opacity-75"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev home-carousel-control" type="button" data-bs-target="#homeMainCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Trước</span>
+        </button>
+        <button class="carousel-control-next home-carousel-control" type="button" data-bs-target="#homeMainCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Sau</span>
+        </button>
+    </div>
+</section>
+
+<!-- Promo strip (3 small banners) -->
+<div class="container mt-n4 position-relative" style="z-index:2;">
+    <div class="row g-3 home-promo-row reveal-stagger">
+        <div class="col-md-4">
+            <div class="reveal h-100">
+            <a asp-controller="Product" asp-action="Index" class="home-promo-tile home-promo-tile--ship text-decoration-none h-100">
+                <div class="home-promo-tile__icon"><i class="bi bi-truck"></i></div>
+                <div>
+                    <strong>Miễn phí giao hàng</strong>
+                    <span>Đơn từ 500.000đ — Toàn quốc</span>
+                </div>
+            </a>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="reveal h-100">
+            <a asp-controller="Product" asp-action="Index" class="home-promo-tile home-promo-tile--shield text-decoration-none h-100">
+                <div class="home-promo-tile__icon"><i class="bi bi-shield-check"></i></div>
+                <div>
+                    <strong>Hàng chính hãng</strong>
+                    <span>Bảo hành đầy đủ — Đổi trả trong 7 ngày</span>
+                </div>
+            </a>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="reveal h-100">
+            <a asp-controller="Home" asp-action="Contact" class="home-promo-tile home-promo-tile--support text-decoration-none h-100">
+                <div class="home-promo-tile__icon"><i class="bi bi-headset"></i></div>
+                <div>
+                    <strong>Hỗ trợ 24/7</strong>
+                    <span>Hotline &amp; chat — Luôn sẵn sàng</span>
+                </div>
+            </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container py-4">
+    <!-- Categories -->
+    @if (categories.Any())
+    {
+        <section class="mb-5 pt-3">
+            <h2 class="section-title">Danh mục sản phẩm</h2>
+            <div class="row g-3 reveal-stagger">
+                @for (int i = 0; i < categories.Count && i < 10; i++)
+                {
+                    var cat = categories[i];
+                    <div class="col-6 col-md-3 col-lg">
+                        <div class="reveal h-100">
+                        <a class="category-card d-block h-100" asp-controller="Product" asp-action="Index" asp-route-categoryId="@cat.CategoryID">
+                            <i class="bi @icons[i % icons.Length]"></i>
+                            <h6>@cat.CategoryName</h6>
+                        </a>
+                        </div>
+                    </div>
+                }
+            </div>
+        </section>
+    }
+
+    <!-- Mid-page dual banners -->
+    <section class="mb-5">
+        <div class="row g-3 reveal-stagger">
+            <div class="col-lg-6">
+                <div class="reveal h-100">
+                <a asp-controller="Product" asp-action="Index" class="home-mid-banner home-mid-banner--left d-block text-decoration-none text-white h-100">
+                    <div class="home-mid-banner__content">
+                        <span class="small text-uppercase opacity-75">Ưu đãi tuần này</span>
+                        <h3 class="fw-bold mb-2">Phụ kiện công nghệ</h3>
+                        <p class="mb-3 small opacity-90">Tai nghe, chuột, bàn phím — Giá chỉ từ 99K</p>
+                        <span class="btn btn-sm btn-light fw-bold rounded-pill">Mua ngay <i class="bi bi-arrow-right ms-1"></i></span>
+                    </div>
+                </a>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="reveal h-100">
+                <a asp-controller="Account" asp-action="Register" class="home-mid-banner home-mid-banner--right d-block text-decoration-none text-white h-100">
+                    <div class="home-mid-banner__content">
+                        <span class="small text-uppercase opacity-75">Thành viên mới</span>
+                        <h3 class="fw-bold mb-2">Đăng ký nhận ưu đãi</h3>
+                        <p class="mb-3 small opacity-90">Ưu đãi độc quyền cho khách hàng LHK Shop</p>
+                        <span class="btn btn-sm btn-warning fw-bold rounded-pill">Đăng ký miễn phí <i class="bi bi-arrow-right ms-1"></i></span>
+                    </div>
+                </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    @if (products.Any())
+    {
+        <section class="mb-5">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h2 class="section-title mb-0">Sản phẩm nổi bật</h2>
+                <a asp-controller="Product" asp-action="Index" class="btn btn-outline-primary btn-sm">Xem tất cả <i class="bi bi-arrow-right"></i></a>
+            </div>
+            <div class="row g-3 reveal-stagger">
+                @foreach (var p in products)
+                {
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <div class="product-card reveal h-100">
+                            <a asp-controller="Product" asp-action="Detail" asp-route-id="@p.ProductID">
+                                <div class="card-img-wrap">
+                                    <img src="@(string.IsNullOrEmpty(p.Photo) ? "/images/products/noproduct.png" : "/images/products/" + p.Photo)"
+                                         alt="@p.ProductName" />
+                                </div>
+                            </a>
+                            <div class="card-body">
+                                <a class="product-name" asp-controller="Product" asp-action="Detail" asp-route-id="@p.ProductID">@p.ProductName</a>
+                                <div class="product-price">@p.Price.ToString("N0") đ</div>
+                                <form asp-controller="Cart" asp-action="AddToCart" method="post">
+                                    <input type="hidden" name="productId" value="@p.ProductID" />
+                                    <button type="submit" class="btn btn-add-cart w-100">
+                                        <i class="bi bi-cart-plus me-1"></i>Thêm vào giỏ
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </section>
+    }
+
+    <!-- Bottom full-width style banner -->
+    <section class="home-bottom-cta text-center text-white rounded-4 overflow-hidden mb-2 reveal">
+        <div class="home-bottom-cta__inner py-5 px-3">
+            <h3 class="fw-bold mb-2">Mua sắm an tâm tại LHK Shop</h3>
+            <p class="mb-4 opacity-90 mx-auto" style="max-width:520px;">Thanh toán linh hoạt — Giao hàng nhanh — Đổi trả dễ dàng</p>
+            <a asp-controller="Product" asp-action="Index" class="btn btn-warning btn-lg fw-bold px-5 rounded-pill">
+                <i class="bi bi-shop-window me-2"></i>Vào cửa hàng
+            </a>
+        </div>
+    </section>
+</div>

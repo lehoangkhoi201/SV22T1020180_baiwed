@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="SV22T1020180.BusinessLayers/SV22T1020180.BusinessLayers.csproj" />
+  <Project Path="SV22T1020180.DataLayers/SV22T1020180.DataLayers.csproj" />
+  <Project Path="SV22T1020180.Models/SV22T1020180.Models.csproj" />
+  <Project Path="SV22T1020180.Admin/SV22T1020180.Admin.csproj" />
+  <Project Path="SV22T1020180.Shop/SV22T1020180.Shop.csproj" />
+</Solution>

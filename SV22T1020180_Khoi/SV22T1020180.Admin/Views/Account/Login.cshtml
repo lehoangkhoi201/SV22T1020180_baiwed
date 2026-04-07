@@ -1,0 +1,54 @@
+@{
+    ViewBag.Title = "Đăng nhập";
+    Layout = null;
+}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>LHK Shop - Đăng nhập</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+    <link rel="stylesheet" href="~/lib/bootstrap/bootstrap-icons.min.css" />
+    <link rel="stylesheet" href="~/lib/adminlte/css/adminlte.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+
+<body class="login-page bg-body-secondary">
+    <div class="login-box">
+        <div class="login-logo">
+            <a><b>LHK</b> Shop</a>
+        </div>
+        <div class="card">
+            <div class="card-body login-card-body">
+                <p class="login-box-msg">Đăng nhập vào hệ thống quản trị</p>
+
+                @if (!ViewData.ModelState.IsValid)
+                {
+                    <div class="alert alert-danger alert-dismissible fade show py-2">
+                        @Html.ValidationSummary(true)
+                        <button type="button" class="btn-close btn-sm" data-bs-dismiss="alert"></button>
+                    </div>
+                }
+
+                <form asp-action="Login" asp-controller="Account" method="post">
+                    <div class="input-group mb-3">
+                        <input type="email" name="email" class="form-control" placeholder="Email" autofocus />
+                        <div class="input-group-text"><span class="bi bi-envelope"></span></div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="password" name="password" class="form-control" placeholder="Mật khẩu" />
+                        <div class="input-group-text"><span class="bi bi-lock-fill"></span></div>
+                    </div>
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="bi bi-box-arrow-in-right me-1"></i> Đăng nhập
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="~/lib/bootstrap/bootstrap.bundle.min.js"></script>
+</body>
+</html>
